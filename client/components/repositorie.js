@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-// import ReactMarkdown from 'react-markdown/with-html'
+import ReactMarkdown from 'react-markdown/with-html'
 import { useParams } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { updateReadmeMD } from '../redux/reducers/repositories'
@@ -14,8 +14,7 @@ const Repositories = () => {
   return (
     <div>
       <div id="description">
-        {atob(readmeMD)}
-        {/* <ReactMarkdown source={readmeMD} escapeHtml={false} /> */}
+        <ReactMarkdown source={readmeMD} escapeHtml={false} />
       </div>
     </div>
   )

@@ -25,7 +25,7 @@ export default (state = initialState, action) => {
     case UPDATE_READMEMD:
       return {
         ...state,
-        readmeMD: action.readmeMD
+        readmeMD: atob(action.readmeMD)
       }
     default:
       return state
