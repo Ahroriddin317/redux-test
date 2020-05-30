@@ -23,6 +23,7 @@ const Repos = () => {
   return (
     <div>
       <Head title="Hello" />
+      <h1>Hello</h1>
       {username}
       {JSON.stringify(repos)}
     </div>
