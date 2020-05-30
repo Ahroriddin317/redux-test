@@ -1,18 +1,21 @@
-import React, { useState } from 'react'
-import Head from './head'
+import React from 'react'
+import { useParams, Route, Switch } from 'react-router-dom'
+import Header from './header'
+import InputView from './inputview'
+import ListRepositories from './listrepositories'
+import Repositories from './repositorie'
 // import wave from '../assets/images/wave.jpg'
 
 const Home = () => {
-  const [counter, setCounterNew] = useState(0)
-
+  const { userName, repositoryName } = useParams()
   return (
     <div>
-      <Head title="Hello" />
-      <img alt="wave" src="images/wave.jpg" />
-      <button type="button" onClick={() => setCounterNew(counter + 1)}>
-        updateCounter
-      </button>
-      <div> Hello World Dashboard {counter} </div>
+      {userName && <Header userName={userName} repositoryName={repositoryName} />}
+      <Switch>
+        <Route exact path="/" component={() => <InputView />} />
+        <Route exact path="/:userName" component={() => <ListRepositories />} />
+        <Route exact path="/:userName/:repositoryName" component={() => <Repositories />} />
+      </Switch>
     </div>
   )
 }

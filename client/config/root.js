@@ -6,7 +6,6 @@ import { ConnectedRouter } from 'connected-react-router'
 import { Switch, Route, Redirect, StaticRouter } from 'react-router-dom'
 
 import store, { history } from '../redux'
-import Repositories from '../components/repositories'
 import Home from '../components/home'
 import DummyView from '../components/dummy-view'
 import NotFound from '../components/404'
@@ -72,9 +71,9 @@ const Root = (props) => {
       <ScillcrucialRouter history={history} location={props.location} context={props.context}>
         <Startup>
           <Switch>
-            <Route exact path="/" component={() => <DummyView />} />
-            <Route exact path="/:username" component={() => <Repositories />} />
-
+            <Route exact path="/" component={() => <Home />} />
+            <Route exact path="/:userName" component={() => <Home />} />
+            <Route exact path="/:userName/:repositoryName" component={() => <Home />} />
             <Route exact path="/dashboard" component={() => <Home />} />
             <PrivateRoute exact path="/hidden-route" component={() => <DummyView />} />
             <Route component={() => <NotFound />} />
